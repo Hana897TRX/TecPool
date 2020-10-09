@@ -1,18 +1,17 @@
 package mx.tec.lumaapp
 
-import android.graphics.Typeface
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import android.view.WindowInsets
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.perfil_layout)
+        setContentView(R.layout.activity_main)
 
-        val miPerfil = findViewById<TextView>(R.id.miPerfil)
-
-        miPerfil.typeface = Typeface.createFromAsset(assets,"Fonts/Righteous-Regular.ttf")
-
+        val i = Intent(this@MainActivity,PerfilActivity::class.java)
+        startActivity(i)
     }
 }

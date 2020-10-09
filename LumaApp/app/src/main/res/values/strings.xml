@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">LumaApp</string>
-    <string name="mi_perfil">Mi perfil</string>
-    <!--    <string name="fuenteGeneral">"Fonts/Righteous-Regular.ttf"</string>-->
+    <!--    <string name="fuenteGeneral">"Fonts/titulos.ttf"</string>-->
 
 <!--    Strings del layout perfil-->
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="nombre_template">Emmanuel del Rio</string>
+    <string name="telefono_template">Telefono: 7472211787</string>
+    <string name="edad_template">Edad: 20 años</string>
+    <string name="carrera_template">Carrera: ITC</string>
+    <string name="ecopuntos_acumulados">€copuntos acumulados</string>
+    <string name="sol_template">Take to direct sun once on week</string>
+    <string name="gota_template">Watering each 3 days</string>
+    <string name="termo_template">Tropical plants</string>
+    <string name="ecopuntos_totales">250</string>
+    <string name="descripcion">Nada</string>
 
 
 

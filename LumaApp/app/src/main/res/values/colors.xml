@@ -7,4 +7,5 @@
     <color name="background">#83DB53</color>
     <color name="letters">#1a7839</color>
     <color name="letters2">#e69f75</color>
+    <color name="borde_marcos">#85b639</color>
 </resources>

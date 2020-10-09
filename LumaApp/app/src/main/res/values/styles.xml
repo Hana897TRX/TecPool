@@ -12,4 +12,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Font_Titulos">
+        <item name="fontStyle">normal</item>
+        <item name="fontWeight">400</item>
+        <item name="font">@font/titulos</item>
+    </style>
 </resources>
