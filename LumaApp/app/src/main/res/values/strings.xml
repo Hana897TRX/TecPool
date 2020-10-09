@@ -13,7 +13,7 @@
     <string name="termo_template">Tropical plants</string>
     <string name="ecopuntos_totales">250</string>
     <string name="descripcion2">Nada</string>
-    <string name="descripcion1">Nada</string>
+    <string name="descripcion">Nada</string>
 
     <!--    Strings del layout Log-In-->
     <string name="LogIn">LogIn</string>
