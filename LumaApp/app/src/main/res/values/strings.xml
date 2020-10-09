@@ -20,4 +20,16 @@
     <string name="User">User</string>
     <string name="Password">Password</string>
     <string name="descripcionddd">descrip</string>
+
+    <!--    Strings del modelo para recycler view Rutas-->
+    <string name="inicioR">Inicio:</string>
+    <string name="destinoR">Destino:</string>
+    <string name="horaSalidaR">Hora de salida:</string>
+    <string name="precioR">Precio:</string>
+    <string name="inicioR_template">Buena Vista</string>
+    <string name="hora_salida_template">9:00 am</string>
+    <string name="destinoR_template">Tec CVA</string>
+    <string name="precioR_template">$ 40.00 MXN</string>
+
+
 </resources>
