@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">LumaApp</string>
-    <!--    <string name="fuenteGeneral">"Fonts/titulos.ttf"</string>-->
 
-<!--    Strings del layout perfil-->
+    <!--    Strings del layout perfil-->
     <string name="mi_perfil">Mi perfil</string>
     <string name="nombre_template">Emmanuel del Rio</string>
     <string name="telefono_template">Telefono: 7472211787</string>
@@ -15,7 +14,8 @@
     <string name="ecopuntos_totales">250</string>
     <string name="descripcion">Nada</string>
 
-
-
-
+    <!--    Strings del layout Log-In-->
+    <string name="LogIn">LogIn</string>
+    <string name="User">User</string>
+    <string name="Password">Password</string>
 </resources>
