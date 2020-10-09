@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">LumaApp</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <!--    <string name="fuenteGeneral">"Fonts/Righteous-Regular.ttf"</string>-->
+
+<!--    Strings del layout perfil-->
+
+
+
+
 </resources>
