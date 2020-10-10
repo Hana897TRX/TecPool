@@ -30,6 +30,12 @@
     <string name="hora_salida_template">9:00 am</string>
     <string name="destinoR_template">Tec CVA</string>
     <string name="precioR_template">$ 40.00 MXN</string>
+    <string name="inicio_menu_var">Inicio</string>
+    <string name="rides_menu_var">Rides</string>
+    <string name="ecopuntos_menu_var">Ecopuntos</string>
+    <string name="mi_perfil_menu_var">Mi perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

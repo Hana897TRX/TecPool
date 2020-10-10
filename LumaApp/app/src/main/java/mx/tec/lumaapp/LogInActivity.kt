@@ -19,8 +19,7 @@ class LogInActivity : AppCompatActivity() {
 
         btnAceptar.setOnClickListener{
             if(usuario.text.isNotEmpty()) {
-                val intent = Intent(this, PerfilActivity::class.java)
-                intent.putExtra("usuario",usuario.text.toString())
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
             else
