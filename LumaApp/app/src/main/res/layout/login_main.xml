@@ -68,7 +68,9 @@
             android:layout_marginStart="70dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="75dp"
+            android:layout_marginRight="70dp"
             android:ems="10"
+            android:fontFamily="sans-serif"
             android:hint="@string/User"
             android:inputType="textPersonName" />
 
@@ -79,9 +81,21 @@
             android:layout_marginStart="70dp"
             android:layout_marginLeft="70dp"
             android:layout_marginTop="135dp"
+            android:layout_marginRight="70dp"
             android:ems="10"
+            android:fontFamily="sans-serif"
             android:hint="@string/Password"
-            android:inputType="textPersonName" />
+            android:inputType="textPassword" />
+
+        <CheckBox
+            android:id="@+id/manter_iniciadoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="88dp"
+            android:layout_marginTop="185dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/mantener_sesn_iniciada"
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -89,7 +103,7 @@
             android:layout_height="62dp"
             android:layout_marginStart="185dp"
             android:layout_marginLeft="185dp"
-            android:layout_marginTop="198dp"
+            android:layout_marginTop="218dp"
             android:background="@drawable/accept" />
 
         <Button
@@ -99,7 +113,7 @@
             android:layout_height="70dp"
             android:layout_marginStart="85dp"
             android:layout_marginLeft="85dp"
-            android:layout_marginTop="195dp"
+            android:layout_marginTop="215dp"
             android:background="@drawable/cancel"
             android:elevation="8dp" />
 
@@ -170,5 +184,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent=".425" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario y contraseña: Rulo, Gaby, Montoya y Tory"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,5 +19,10 @@
     <fragment
         android:id="@+id/perfilActivity"
         android:name="mx.tec.lumaapp.PerfilActivity"
-        android:label="PerfilActivity" />
+        android:label="PerfilActivity" >
+        <argument
+            android:name="usuarioString"
+            app:argType="string"
+            android:defaultValue="Null" />
+    </fragment>
 </navigation>

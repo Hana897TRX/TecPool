@@ -6,6 +6,8 @@
     <string name="nombre_template">Rodrigo Sebastián de la Rosa Andrés</string>
     <string name="telefono_template">Telefono: 7472211787</string>
     <string name="edad_template">Edad: 20 años</string>
+    <string name="edad_inicio">Edad: </string>
+    <string name="edad_final"> años</string>
     <string name="carrera_template">Carrera: ITC</string>
     <string name="ecopuntos_acumulados">€copuntos acumulados</string>
     <string name="sol_template">Take to direct sun once on week</string>
@@ -14,28 +16,35 @@
     <string name="ecopuntos_totales">250</string>
     <string name="descripcion2">Nada</string>
     <string name="descripcion">Nada</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
 
     <!--    Strings del layout Log-In-->
     <string name="LogIn">LogIn</string>
     <string name="User">User</string>
     <string name="Password">Password</string>
     <string name="descripcionddd">descrip</string>
+    <string name="mantener_sesn_iniciada">Mantener sesión iniciada</string>
 
     <!--    Strings del modelo para recycler view Rutas-->
     <string name="inicioR">Inicio:</string>
     <string name="destinoR">Destino:</string>
-    <string name="horaSalidaR">Hora de salida:</string>
+    <string name="horaSalidaR">Hora:</string>
     <string name="precioR">Precio:</string>
     <string name="inicioR_template">Buena Vista</string>
     <string name="hora_salida_template">9:00 am</string>
-    <string name="destinoR_template">Tec CVA</string>
+    <string name="destinoR_template">Temixco Centro</string>
     <string name="precioR_template">$ 40.00 MXN</string>
+
+    <!--    Strings para el menu del Bottom Navigation View-->
     <string name="inicio_menu_var">Inicio</string>
     <string name="rides_menu_var">Rides</string>
     <string name="ecopuntos_menu_var">Ecopuntos</string>
     <string name="mi_perfil_menu_var">Mi perfil</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    Strings del layout Rides-->
+    <string name="rides_titulo">Rides</string>
+    <string name="busqueda_destino_hint">Destino</string>
+    <string name="busqueda_inicio_hint">Inicio</string>
 
 
 </resources>

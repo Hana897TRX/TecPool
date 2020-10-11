@@ -7,6 +7,6 @@ import mx.tec.lumaapp.R
 data class RutaModel(
     val destino:String,
     val origen :String,
-    val precio :String,
+    val precio: Float,
     val hora:String) {
 }
