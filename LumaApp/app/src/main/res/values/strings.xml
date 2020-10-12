@@ -46,5 +46,8 @@
     <string name="busqueda_destino_hint">Destino</string>
     <string name="busqueda_inicio_hint">Inicio</string>
 
+    <!--    Strings del Pop-Up Información de Ruta-->
+    <string name="informaci_n_de_la_ruta">Información de la Ruta</string>
+
 
 </resources>

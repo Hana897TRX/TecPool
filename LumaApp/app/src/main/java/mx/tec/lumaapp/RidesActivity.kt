@@ -1,9 +1,13 @@
 package mx.tec.lumaapp
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -59,6 +63,14 @@ class RidesActivity : Fragment() {
 
 
         return view
+    }
+
+    fun Mostrar_RutaPopUp(view: View){
+        val dialog = Dialog(this.requireContext())
+        dialog.setContentView(R.layout.info_ruta_pop)
+
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
