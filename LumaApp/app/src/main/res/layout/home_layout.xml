@@ -7,7 +7,7 @@
     android:background="@color/background">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtMisEcopts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LumaApp"
@@ -51,7 +51,7 @@
         android:layout_width="158dp"
         android:layout_height="220dp"
         android:scaleType="fitEnd"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/txtMisEcopts"
         app:layout_constraintEnd_toStartOf="@+id/guideline30"
         app:layout_constraintStart_toStartOf="@+id/guideline25"
         app:layout_constraintTop_toTopOf="@+id/guideline29"
@@ -97,7 +97,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline31"
         app:layout_constraintEnd_toStartOf="@+id/guideline30"
         app:layout_constraintStart_toStartOf="@+id/guideline25"
-        app:layout_constraintTop_toBottomOf="@+id/textView" >
+        app:layout_constraintTop_toBottomOf="@+id/txtMisEcopts" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
