@@ -49,5 +49,8 @@
     <!--    Strings del Pop-Up Información de Ruta-->
     <string name="informaci_n_de_la_ruta">Información de la Ruta</string>
 
+    <!--    Strings del layout EcoPuntos-->
+    <string name="mis_ecopuntos">Mis €copuntos</string>
+    <string name="ecos_acumulados_template">250</string>
 
 </resources>
