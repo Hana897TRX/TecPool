@@ -10,7 +10,7 @@ interface UsuariosCore {
     @Query("SELECT * FROM Usuario WHERE Username LIKE :username")
     fun obtenerUsuario(username : String) : Usuario
     @Insert
-    fun registrarUsuarios(user: Usuario)
+    fun registrarUsuario(user: Usuario)
     @Update
     fun updateUser(user : Usuario)
     @Query("UPDATE Usuario SET EcoPuntos = :ecoPuntos WHERE Id LIKE :id")

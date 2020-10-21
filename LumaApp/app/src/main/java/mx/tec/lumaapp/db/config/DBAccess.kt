@@ -63,7 +63,7 @@ class DBAccess(contex: Context) : AsyncTask<String, Void, Boolean>() {
             20,
             "Hana2"
         );
-        db!!.usuarioDao().registrarUsuarios(gaby)
+        db!!.usuarioDao().registrarUsuario(gaby)
 
         var rulo: Usuario = Usuario(
             0,
@@ -76,7 +76,7 @@ class DBAccess(contex: Context) : AsyncTask<String, Void, Boolean>() {
             300,
             "Rulo"
         )
-        db!!.usuarioDao().registrarUsuarios(rulo)
+        db!!.usuarioDao().registrarUsuario(rulo)
 
         var isra: Usuario = Usuario(
             0,
@@ -89,7 +89,7 @@ class DBAccess(contex: Context) : AsyncTask<String, Void, Boolean>() {
             0,
             "Montoya"
         )
-        db!!.usuarioDao().registrarUsuarios(isra)
+        db!!.usuarioDao().registrarUsuario(isra)
 
         var roy: Usuario = Usuario(
             0,
@@ -102,6 +102,6 @@ class DBAccess(contex: Context) : AsyncTask<String, Void, Boolean>() {
             100,
             "Roy"
         )
-        db!!.usuarioDao().registrarUsuarios(roy)
+        db!!.usuarioDao().registrarUsuario(roy)
     }
 }
