@@ -53,4 +53,9 @@
     <string name="mis_ecopuntos">Mis €copuntos</string>
     <string name="ecos_acumulados_template">250</string>
 
+    <!--    Strings del layout Password-->
+    <string name="enviar_correo">Enviar correo</string>
+    <string name="cambiar_contrase_a">Cambiar contraseña</string>
+    <string name="correo_hint">Correo</string>
+
 </resources>
