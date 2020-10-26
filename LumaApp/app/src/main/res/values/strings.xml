@@ -24,6 +24,11 @@
     <string name="Password">Password</string>
     <string name="descripcionddd">descrip</string>
     <string name="mantener_sesn_iniciada">Mantener sesión iniciada</string>
+    <string name="NoAccount">No Account? Create one!</string>
+
+    <!--    Strings del Register-->
+    <string name="Register">Register</string>
+    <string name="NotMatch">Not match</string>
 
     <!--    Strings del modelo para recycler view Rutas-->
     <string name="inicioR">Inicio:</string>

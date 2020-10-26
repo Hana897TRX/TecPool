@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 
@@ -40,6 +41,11 @@ class LogInActivity : AppCompatActivity() {
             val intent = Intent(this, PasswordActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    fun Register(view : View){
+        val i = Intent(this, register::class.java)
+        startActivity(i)
     }
 
     private fun IniciarSesión_Automatica() {
