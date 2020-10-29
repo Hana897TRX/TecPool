@@ -2,32 +2,41 @@ package mx.tec.lumaapp
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
-class LogInActivity : AppCompatActivity() {
+class LogInActivity : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.perfil_layout, container, false)
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_main)
-
-        val sharedPreferences = getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
+        val sharedPreferences = this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
         val iniciar = sharedPreferences!!.getInt("mantener", 0)
 
         if (iniciar == 1) {
             IniciarSesión_Automatica()
         }
 
-        val btnAceptar = findViewById<Button>(R.id.btnLogin)
-        val btnOlvide = findViewById<TextView>(R.id.olvide_contraBtn)
-        val userTxt = findViewById<EditText>(R.id.txtCorreo)
-        val passwordTxt = findViewById<EditText>(R.id.txtPass)
-        val mantener = findViewById<CheckBox>(R.id.manter_iniciadoBtn)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val btnAceptar = view.findViewById<Button>(R.id.btnLogin)
+        val userTxt = view.findViewById<EditText>(R.id.txtCorreo)
+        val passwordTxt = view.findViewById<EditText>(R.id.txtPass)
+        val btnOlvide = view.findViewById<TextView>(R.id.olvide_contraBtn)
+        val mantener = view.findViewById<CheckBox>(R.id.manter_iniciadoBtn)
+        val btnRegistrar = view.findViewById<TextView>(R.id.txtRegister)
 
         btnAceptar.setOnClickListener {
             validadUsuario_JarCodeado(
@@ -38,18 +47,16 @@ class LogInActivity : AppCompatActivity() {
         }
 
         btnOlvide.setOnClickListener {
-            val intent = Intent(this, PasswordActivity::class.java)
-            startActivity(intent)
+//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        btnRegistrar.setOnClickListener{
+//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
     }
 
-    fun Register(view : View){
-        val i = Intent(this, register::class.java)
-        startActivity(i)
-    }
-
     private fun IniciarSesión_Automatica() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this.requireContext(), MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
@@ -92,9 +99,9 @@ class LogInActivity : AppCompatActivity() {
             if (user == it.user) {
                 if (password == it.password) {
                     val sharedPreferences =
-                        getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
+                        this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
 
-                    with(sharedPreferences.edit()) {
+                    with(sharedPreferences!!.edit()) {
                         putString("nombre", it.nombre)
                         if (mantener.isChecked) {
                             putInt("mantener", 1)
@@ -109,7 +116,7 @@ class LogInActivity : AppCompatActivity() {
                         commit()
                     }
 
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this.requireContext(), MainActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
                 }

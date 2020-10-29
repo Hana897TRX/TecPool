@@ -4,25 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/homeActivity">
+
     <fragment
         android:id="@+id/homeActivity"
         android:name="mx.tec.lumaapp.HomeActivity"
-        android:label="HomeActivity" />
+        android:label="HomeActivity"
+        tools:layout="@layout/home_layout"/>
+
     <fragment
         android:id="@+id/ridesActivity"
         android:name="mx.tec.lumaapp.RidesActivity"
-        android:label="RidesActivity" />
+        android:label="RidesActivity"
+        tools:layout="@layout/rides_layout"/>
+
     <fragment
         android:id="@+id/ecoActivity"
         android:name="mx.tec.lumaapp.EcoActivity"
-        android:label="EcoActivity" />
+        android:label="EcoActivity"
+        tools:layout="@layout/eco_puntos_layout"/>
+
     <fragment
         android:id="@+id/perfilActivity"
         android:name="mx.tec.lumaapp.PerfilActivity"
-        android:label="PerfilActivity" >
-        <argument
-            android:name="usuarioString"
-            app:argType="string"
-            android:defaultValue="Null" />
-    </fragment>
+        android:label="PerfilActivity"
+        tools:layout="@layout/perfil_layout"/>
+
 </navigation>

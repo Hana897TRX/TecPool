@@ -8,10 +8,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.register_layout.*
 
-class register : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     private var sharedPreferences : SharedPreferences? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +44,7 @@ class register : AppCompatActivity() {
                 alert.show()
             }
             else{
-                Toast.makeText(this@register, R.string.NotMatch, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@RegisterActivity, R.string.NotMatch, Toast.LENGTH_SHORT).show()
             }
         }
     }
