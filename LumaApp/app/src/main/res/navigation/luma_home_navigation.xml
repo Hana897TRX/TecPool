@@ -9,7 +9,25 @@
         android:id="@+id/loginActivity"
         android:name="mx.tec.lumaapp.LogInActivity"
         android:label="LoginActivity"
-        tools:layout="@layout/login_main"/>
+        tools:layout="@layout/login_main">
+        <action
+            android:id="@+id/action_loginActivity_to_passwordActivity"
+            app:destination="@id/passwordActivity" />
+        <action
+            android:id="@+id/action_loginActivity_to_registerActivity"
+            app:destination="@id/registerActivity" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/registerActivity"
+        android:name="mx.tec.lumaapp.RegisterActivity"
+        android:label="RegisterActivity"
+        tools:layout="@layout/register_layout"/>
+
+    <fragment
+        android:id="@+id/passwordActivity"
+        android:name="mx.tec.lumaapp.PasswordActivity"
+        android:label="PasswordActivity"
+        tools:layout="@layout/activity_password"/>
 
 </navigation>

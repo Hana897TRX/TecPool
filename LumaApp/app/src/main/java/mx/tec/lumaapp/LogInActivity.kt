@@ -16,7 +16,7 @@ class LogInActivity : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.perfil_layout, container, false)
+        val view = inflater.inflate(R.layout.login_main, container, false)
 
         val sharedPreferences = this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
         val iniciar = sharedPreferences!!.getInt("mantener", 0)
@@ -24,13 +24,11 @@ class LogInActivity : Fragment() {
         if (iniciar == 1) {
             IniciarSesión_Automatica()
         }
-
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val btnAceptar = view.findViewById<Button>(R.id.btnLogin)
         val userTxt = view.findViewById<EditText>(R.id.txtCorreo)
         val passwordTxt = view.findViewById<EditText>(R.id.txtPass)
@@ -47,11 +45,11 @@ class LogInActivity : Fragment() {
         }
 
         btnOlvide.setOnClickListener {
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_loginActivity_to_passwordActivity)
         }
 
         btnRegistrar.setOnClickListener{
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_loginActivity_to_registerActivity)
         }
     }
 

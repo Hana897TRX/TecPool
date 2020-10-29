@@ -19,16 +19,17 @@
     <string name="cerrar_sesion">Cerrar sesión</string>
 
     <!--    Strings del layout Log-In-->
-    <string name="LogIn">LogIn</string>
-    <string name="User">User</string>
-    <string name="Password">Password</string>
+    <string name="LogIn">Iniciar Sesión</string>
+    <string name="User">Usuario</string>
+    <string name="Password">Contraseña</string>
     <string name="descripcionddd">descrip</string>
     <string name="mantener_sesn_iniciada">Mantener sesión iniciada</string>
-    <string name="NoAccount">No Account? Create one!</string>
+    <string name="NoAccount">¿No tienes cuenta? Crea una</string>
 
     <!--    Strings del Register-->
-    <string name="Register">Register</string>
+    <string name="Register">Registrar</string>
     <string name="NotMatch">Not match</string>
+    <string name="password_confirm">Confirmar contraseña</string>
 
     <!--    Strings del modelo para recycler view Rutas-->
     <string name="inicioR">Inicio:</string>

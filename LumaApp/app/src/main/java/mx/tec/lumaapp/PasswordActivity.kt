@@ -13,7 +13,7 @@ class PasswordActivity : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.perfil_layout, container, false)
+        val view = inflater.inflate(R.layout.activity_password, container, false)
 
         return view
     }
