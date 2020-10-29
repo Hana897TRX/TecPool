@@ -3,7 +3,6 @@ package mx.tec.lumaapp
 import android.content.Context
 import android.content.DialogInterface
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +25,7 @@ class RegisterActivity : Fragment() {
 
         sharedPreferences = this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
 
-        val btnAceptar = view.findViewById<Button>(R.id.btnLogin)
+        val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
         btnAceptar.setOnClickListener{Register(view)}
 
         val btnCancelar = view.findViewById<Button>(R.id.btnCancel)

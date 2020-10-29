@@ -28,6 +28,30 @@
         android:id="@+id/passwordActivity"
         android:name="mx.tec.lumaapp.PasswordActivity"
         android:label="PasswordActivity"
-        tools:layout="@layout/activity_password"/>
+        tools:layout="@layout/activity_password">
+        <action
+            android:id="@+id/action_passwordActivity_to_codePasswordActivity"
+            app:destination="@id/codePasswordActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/codePasswordActivity"
+        android:name="mx.tec.lumaapp.CodePasswordActivity"
+        android:label="code_password_activity"
+        tools:layout="@layout/code_password_activity" >
+        <action
+            android:id="@+id/action_codePasswordActivity_to_change_password_activity"
+            app:destination="@id/changePasswordActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordActivity"
+        android:name="mx.tec.lumaapp.ChangePasswordActivity"
+        android:label="change_password_activity"
+        tools:layout="@layout/change_password_activity" >
+        <action
+            android:id="@+id/action_changePasswordActivity_to_loginActivity"
+            app:destination="@id/loginActivity"
+            app:popUpTo="@id/changePasswordActivity"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

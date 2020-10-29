@@ -29,7 +29,7 @@ class LogInActivity : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val btnAceptar = view.findViewById<Button>(R.id.btnLogin)
+        val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
         val userTxt = view.findViewById<EditText>(R.id.txtCorreo)
         val passwordTxt = view.findViewById<EditText>(R.id.txtPass)
         val btnOlvide = view.findViewById<TextView>(R.id.olvide_contraBtn)
