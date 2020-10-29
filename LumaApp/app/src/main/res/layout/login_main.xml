@@ -112,7 +112,7 @@
         android:id="@+id/olvide_contraBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:text="¿Olvidaste tu contraseña?"
         android:textColor="#8E8E8E"
         app:layout_constraintBottom_toBottomOf="parent"

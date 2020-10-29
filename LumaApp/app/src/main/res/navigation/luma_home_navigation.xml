@@ -12,7 +12,8 @@
         tools:layout="@layout/login_main">
         <action
             android:id="@+id/action_loginActivity_to_passwordActivity"
-            app:destination="@id/passwordActivity" />
+            app:destination="@id/passwordActivity"
+            app:popUpToInclusive="false" />
         <action
             android:id="@+id/action_loginActivity_to_registerActivity"
             app:destination="@id/registerActivity" />
@@ -50,7 +51,7 @@
         <action
             android:id="@+id/action_changePasswordActivity_to_loginActivity"
             app:destination="@id/loginActivity"
-            app:popUpTo="@id/changePasswordActivity"
+            app:popUpTo="@id/loginActivity"
             app:popUpToInclusive="true" />
     </fragment>
 

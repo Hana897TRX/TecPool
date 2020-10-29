@@ -1,5 +1,6 @@
 package mx.tec.lumaapp
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 class LogInActivity : Fragment() {
+    @SuppressLint("RestrictedApi")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,6 +26,7 @@ class LogInActivity : Fragment() {
         if (iniciar == 1) {
             IniciarSesión_Automatica()
         }
+
         return view
     }
 

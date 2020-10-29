@@ -28,7 +28,6 @@ class ChangePasswordActivity : Fragment() {
 
         btnAceptar.setOnClickListener {
             findNavController().navigate(R.id.action_changePasswordActivity_to_loginActivity)
-            findNavController().backStack.clear()
         }
     }
 
