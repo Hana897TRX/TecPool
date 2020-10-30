@@ -84,7 +84,7 @@ class PerfilActivity : Fragment() {
                 commit()
             }
 
-            val intent = Intent(this.context, LogInActivity::class.java)
+            val intent = Intent(this.context, LumaHomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
