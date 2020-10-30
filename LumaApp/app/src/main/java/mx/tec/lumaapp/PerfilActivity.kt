@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.perfil_layout.*
 
 class PerfilActivity : Fragment() {
@@ -47,6 +48,25 @@ class PerfilActivity : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val cerrarBtn = view.findViewById<TextView>(R.id.cerrar_sesionBtn)
+
+//        val bottomNavigationView = this.activity?.findViewById<BottomNavigationView>(R.id.nav_bar)
+//        bottomNavigationView!!.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.ecoActivity -> {
+//                    findNavController().navigate(R.id.action_perfilActivity_to_ecoActivity)
+//                    true
+//                }
+//                R.id.homeActivity -> {
+//                    findNavController().navigate(R.id.action_perfilActivity_to_homeActivity)
+//                    true
+//                }
+//                R.id.ridesActivity -> {
+//                    findNavController().navigate(R.id.action_perfilActivity_to_ridesActivity)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
 
         cerrarBtn.setOnClickListener {
 

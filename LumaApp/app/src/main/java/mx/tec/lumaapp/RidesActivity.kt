@@ -15,9 +15,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import mx.tec.lumaapp.elementos_recycler.adapter.RutaAdapter
 import mx.tec.lumaapp.elementos_recycler.model.RutaModel
 
@@ -75,5 +77,24 @@ class RidesActivity : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        val bottomNavigationView = this.activity?.findViewById<BottomNavigationView>(R.id.nav_bar)
+//        bottomNavigationView!!.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.ecoActivity -> {
+//                    findNavController().navigate(R.id.action_ridesActivity_to_ecoActivity)
+//                    true
+//                }
+//                R.id.homeActivity -> {
+//                    findNavController().navigate(R.id.action_ridesActivity_to_homeActivity)
+//                    true
+//                }
+//                R.id.perfilActivity -> {
+//                    findNavController().navigate(R.id.action_ridesActivity_to_perfilActivity)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
     }
 }

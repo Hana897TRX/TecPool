@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeActivity">
+
+    <fragment
+        android:id="@+id/homeActivity"
+        android:name="mx.tec.lumaapp.HomeActivity"
+        android:label="HomeActivity"
+        tools:layout="@layout/home_layout">
+        <action
+            android:id="@+id/action_homeActivity_to_ridesActivity"
+            app:destination="@id/ridesActivity" />
+        <action
+            android:id="@+id/action_homeActivity_to_perfilActivity"
+            app:destination="@id/perfilActivity" />
+        <action
+            android:id="@+id/action_homeActivity_to_ecoActivity"
+            app:destination="@id/ecoActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ridesActivity"
+        android:name="mx.tec.lumaapp.RidesActivity"
+        android:label="RidesActivity"
+        tools:layout="@layout/rides_layout">
+        <action
+            android:id="@+id/action_ridesActivity_to_perfilActivity"
+            app:destination="@id/perfilActivity" />
+        <action
+            android:id="@+id/action_ridesActivity_to_homeActivity"
+            app:destination="@id/homeActivity" />
+        <action
+            android:id="@+id/action_ridesActivity_to_ecoActivity"
+            app:destination="@id/ecoActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ecoActivity"
+        android:name="mx.tec.lumaapp.EcoActivity"
+        android:label="EcoActivity"
+        tools:layout="@layout/eco_puntos_layout">
+        <action
+            android:id="@+id/action_ecoActivity_to_perfilActivity"
+            app:destination="@id/perfilActivity" />
+        <action
+            android:id="@+id/action_ecoActivity_to_homeActivity"
+            app:destination="@id/homeActivity" />
+        <action
+            android:id="@+id/action_ecoActivity_to_ridesActivity"
+            app:destination="@id/ridesActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/perfilActivity"
+        android:name="mx.tec.lumaapp.PerfilActivity"
+        android:label="PerfilActivity"
+        tools:layout="@layout/perfil_layout">
+        <action
+            android:id="@+id/action_perfilActivity_to_ridesActivity"
+            app:destination="@id/ridesActivity" />
+        <action
+            android:id="@+id/action_perfilActivity_to_homeActivity"
+            app:destination="@id/homeActivity" />
+        <action
+            android:id="@+id/action_perfilActivity_to_ecoActivity"
+            app:destination="@id/ecoActivity" />
+    </fragment>
+
+</navigation>

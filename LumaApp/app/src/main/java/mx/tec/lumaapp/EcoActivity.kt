@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.eco_puntos_layout.*
 import mx.tec.lumaapp.elementos_recycler.adapter.CuponesAdapter
 import mx.tec.lumaapp.elementos_recycler.model.CuponesModel
@@ -34,5 +36,28 @@ class EcoActivity : Fragment() {
         rvCupones.adapter = adaptador
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        val bottomNavigationView = this.activity?.findViewById<BottomNavigationView>(R.id.nav_bar)
+//        bottomNavigationView!!.setOnNavigationItemSelectedListener {
+//            when (it.itemId) {
+//                R.id.ridesActivity -> {
+//                    findNavController().navigate(R.id.action_ecoActivity_to_ridesActivity)
+//                    true
+//                }
+//                R.id.homeActivity -> {
+//                    findNavController().navigate(R.id.action_ecoActivity_to_homeActivity)
+//                    true
+//                }
+//                R.id.perfilActivity -> {
+//                    findNavController().navigate(R.id.action_ecoActivity_to_perfilActivity)
+//                    true
+//                }
+//                else -> false
+//            }
+//        }
     }
 }

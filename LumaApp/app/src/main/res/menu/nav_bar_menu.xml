@@ -17,4 +17,8 @@
     <item android:title="@string/mi_perfil_menu_var"
         android:id="@+id/perfilActivity"
         android:icon="@drawable/cara"/>
+
+    <item android:title="Configuración"
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"/>
 </menu>
