@@ -74,27 +74,6 @@ class PerfilActivity : Fragment() {
 //        }
 
         cerrarBtn.setOnClickListener {
-//                    val sharedPreferences =
-//                        this.activity?.getSharedPreferences(
-//                            "informacion_usuario",
-//                            Context.MODE_PRIVATE
-//                        )
-//                    with(sharedPreferences!!.edit()) {
-//                        putString("nombre", "null")
-//                        putString("user", "null")
-//                        putString("password", "null")
-//                        putString("telefono", "null")
-//                        putString("carrera", "null")
-//                        putInt("edad", 0)
-//                        putInt("ecosAcumulados", 0)
-//                        putInt("mantener", 0)
-//                        commit()
-//                    }
-//
-//            val intent = Intent(this.context, LumaHomeActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-//            startActivity(intent)
-
             val dialogBuilder = AlertDialog.Builder(this.requireContext())
             dialogBuilder.setMessage("¿Deseas cerrar sesión?")
                 .setCancelable(false)
