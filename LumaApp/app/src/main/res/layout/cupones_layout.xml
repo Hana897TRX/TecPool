@@ -60,6 +60,7 @@
                 android:gravity="center"
                 android:text="Aqui van las tiendas participantes :)"
                 android:textSize="32sp" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
