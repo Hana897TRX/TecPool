@@ -32,7 +32,7 @@ class EcoActivity : Fragment() {
         val adaptador = CuponesAdapter(this.requireContext(), R.layout.cupones_layout, cupones)
 
         val rvCupones = view.findViewById<RecyclerView>(R.id.rvCupones)
-        rvCupones.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+        rvCupones.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
         rvCupones.setHasFixedSize(true)
         rvCupones.adapter = adaptador
 
