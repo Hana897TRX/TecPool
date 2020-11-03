@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/luma2_logo"
+        android:icon="@drawable/luma_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/luma2_logo"
+        android:roundIcon="@drawable/luma_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />

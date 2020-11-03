@@ -1,6 +1,7 @@
 package mx.tec.lumaapp
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.perfil_layout.*
+import kotlinx.android.synthetic.main.register_layout.*
 
 class PerfilActivity : Fragment() {
     override fun onCreateView(
@@ -38,7 +41,9 @@ class PerfilActivity : Fragment() {
         nombreTxt.text = nombre.toString()
         telefonoTxt.text = String.format("Teléfono: " + telefono.toString())
         carreraTxt.text = String.format("Carrera: " + carrera.toString())
-        edadTxt.text = String.format(getString(R.string.edad_inicio) + " " + edad.toString() + " " + getString(R.string.edad_final))
+        edadTxt.text = String.format(
+            getString(R.string.edad_inicio) + " " + edad.toString() + " " + getString(R.string.edad_final)
+        )
         ecosTxt.text = ecos.toString()
 
         return view
@@ -69,24 +74,59 @@ class PerfilActivity : Fragment() {
 //        }
 
         cerrarBtn.setOnClickListener {
+//                    val sharedPreferences =
+//                        this.activity?.getSharedPreferences(
+//                            "informacion_usuario",
+//                            Context.MODE_PRIVATE
+//                        )
+//                    with(sharedPreferences!!.edit()) {
+//                        putString("nombre", "null")
+//                        putString("user", "null")
+//                        putString("password", "null")
+//                        putString("telefono", "null")
+//                        putString("carrera", "null")
+//                        putInt("edad", 0)
+//                        putInt("ecosAcumulados", 0)
+//                        putInt("mantener", 0)
+//                        commit()
+//                    }
+//
+//            val intent = Intent(this.context, LumaHomeActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//            startActivity(intent)
 
-            val sharedPreferences =
-                this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
-            with(sharedPreferences!!.edit()) {
-                putString("nombre", "null")
-                putString("user", "null")
-                putString("password", "null")
-                putString("telefono", "null")
-                putString("carrera", "null")
-                putInt("edad", 0)
-                putInt("ecosAcumulados", 0)
-                putInt("mantener", 0)
-                commit()
-            }
+            val dialogBuilder = AlertDialog.Builder(this.requireContext())
+            dialogBuilder.setMessage("¿Deseas cerrar sesión?")
+                .setCancelable(false)
+                .setPositiveButton("Cerrar") { dialogInterface, which ->
+                    val sharedPreferences =
+                        this.activity?.getSharedPreferences(
+                            "informacion_usuario",
+                            Context.MODE_PRIVATE
+                        )
+                    with(sharedPreferences!!.edit()) {
+                        putString("nombre", "null")
+                        putString("user", "null")
+                        putString("password", "null")
+                        putString("telefono", "null")
+                        putString("carrera", "null")
+                        putInt("edad", 0)
+                        putInt("ecosAcumulados", 0)
+                        putInt("mantener", 0)
+                        commit()
+                    }
 
-            val intent = Intent(this.context, LumaHomeActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+                    val intent = Intent(this.context, LumaHomeActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent)
+                }
+                .setNegativeButton("Cancelar", DialogInterface.OnClickListener { dialog, id ->
+                    dialog.cancel()
+                })
+
+            val alert = dialogBuilder.create()
+            alert.setTitle("Activar cuenta")
+            alert.show()
         }
     }
 }
