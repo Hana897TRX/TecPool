@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.tec.lumaapp">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,6 +13,10 @@
         android:roundIcon="@drawable/luma_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDxlqorRjg2KBDU7arDcOeab4x1vv4c86s" />
+
         <activity android:name=".MainActivity" />
         <activity android:name=".LumaHomeActivity">
             <intent-filter>
