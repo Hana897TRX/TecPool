@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeActivity"
+        android:title="@string/home_m"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:id="@+id/ridesActivity"
+        android:title="@string/rides_menu_var"
+        android:icon="@drawable/carro_icono"/>
+
+    <item
+        android:id="@+id/perfilActivity"
+        android:title="@string/mi_perfil"
+        android:icon="@drawable/cara"/>
+
+    <item
+        android:id="@+id/ecoActivity"
+        android:title="@string/coupons_m"
+        android:icon="@drawable/cupon"/>
+
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings_m"
+        android:icon="@drawable/settings"/>
+
+</menu>
