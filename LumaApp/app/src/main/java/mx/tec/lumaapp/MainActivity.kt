@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        var nav = findViewById<BottomNavigationView>(R.id.buttomNavigationView)
-        nav.setupWithNavController(navController)
+        findViewById<BottomNavigationView>(R.id.buttomNavigationView).setupWithNavController(navController)
         navController.graph = navController.navInflater.inflate(R.navigation.main_navigation)
     }
 }
