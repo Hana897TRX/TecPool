@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginActivity"
-        android:name="mx.tec.lumaapp.LogInActivity"
+        android:name="mx.tec.lumaapp.LogInFragment"
         android:label="LoginActivity"
         tools:layout="@layout/login_main">
         <action
@@ -21,13 +21,13 @@
 
     <fragment
         android:id="@+id/registerActivity"
-        android:name="mx.tec.lumaapp.RegisterActivity"
+        android:name="mx.tec.lumaapp.RegisterFragment"
         android:label="RegisterActivity"
         tools:layout="@layout/register_layout"/>
 
     <fragment
         android:id="@+id/passwordActivity"
-        android:name="mx.tec.lumaapp.PasswordActivity"
+        android:name="mx.tec.lumaapp.PasswordFragment"
         android:label="PasswordActivity"
         tools:layout="@layout/activity_password">
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/codePasswordActivity"
-        android:name="mx.tec.lumaapp.CodePasswordActivity"
+        android:name="mx.tec.lumaapp.CodePasswordFragment"
         android:label="code_password_activity"
         tools:layout="@layout/code_password_activity" >
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/changePasswordActivity"
-        android:name="mx.tec.lumaapp.ChangePasswordActivity"
+        android:name="mx.tec.lumaapp.ChangePasswordFragment"
         android:label="change_password_activity"
         tools:layout="@layout/change_password_activity" >
         <action

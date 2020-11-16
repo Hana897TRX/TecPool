@@ -11,7 +11,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
-class LogInActivity : Fragment() {
+class LogInFragment : Fragment() {
     @SuppressLint("RestrictedApi")
     override fun onCreateView(
         inflater: LayoutInflater,

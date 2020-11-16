@@ -26,7 +26,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import mx.tec.lumaapp.elementos_recycler.adapter.RutaAdapter
 import mx.tec.lumaapp.elementos_recycler.model.RutaModel
 
-class RidesActivity : Fragment() , android.location.LocationListener {
+class RidesFragment : Fragment() , android.location.LocationListener {
     lateinit var locationManager : LocationManager
     var LOCATION_CODE = 102
 

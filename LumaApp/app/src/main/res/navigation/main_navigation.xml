@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeActivity"
-        android:name="mx.tec.lumaapp.HomeActivity"
+        android:name="mx.tec.lumaapp.HomeFragment"
         android:label="HomeActivity"
         tools:layout="@layout/home_layout">
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/ridesActivity"
-        android:name="mx.tec.lumaapp.RidesActivity"
+        android:name="mx.tec.lumaapp.RidesFragment"
         android:label="RidesActivity"
         tools:layout="@layout/rides_layout">
         <action
@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/ecoActivity"
-        android:name="mx.tec.lumaapp.EcoActivity"
+        android:name="mx.tec.lumaapp.EcoFragment"
         android:label="EcoActivity"
         tools:layout="@layout/eco_puntos_layout">
         <action
@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/perfilActivity"
-        android:name="mx.tec.lumaapp.PerfilActivity"
+        android:name="mx.tec.lumaapp.PerfilFragment"
         android:label="PerfilActivity"
         tools:layout="@layout/perfil_layout">
         <action

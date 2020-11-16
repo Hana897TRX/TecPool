@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.activity_password.*
 
-class PasswordActivity : Fragment() {
+class PasswordFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

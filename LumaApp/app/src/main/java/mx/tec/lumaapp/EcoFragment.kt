@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import mx.tec.lumaapp.elementos_recycler.adapter.CuponesAdapter
 import mx.tec.lumaapp.elementos_recycler.model.CuponesModel
 
-class EcoActivity : Fragment() {
+class EcoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

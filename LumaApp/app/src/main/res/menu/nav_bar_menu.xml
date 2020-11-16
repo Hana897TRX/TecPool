@@ -9,9 +9,11 @@
         <item android:title="@string/inicio_menu_var"
         android:id="@+id/homeActivity"
         android:icon="@drawable/home"/>
+
         <item android:title="@string/rides_menu_var"
             android:id="@+id/ridesActivity"
             android:icon="@drawable/carro_icono"/>
+
     </group>
 
     <group

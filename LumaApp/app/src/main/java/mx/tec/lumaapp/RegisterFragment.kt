@@ -13,7 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.register_layout.*
 
-class RegisterActivity : Fragment() {
+class RegisterFragment : Fragment() {
     private var sharedPreferences : SharedPreferences? = null
 
     override fun onCreateView(
