@@ -29,7 +29,7 @@
     <string name="NoAccount">¿No tienes cuenta? Crea una</string>
 
     <!--    Strings del Register-->
-    <string name="Register">Registrar</string>
+    <string name="Register">Activar cuenta</string>
     <string name="NotMatch">Not match</string>
     <string name="password_confirm">Confirmar contraseña</string>
 
