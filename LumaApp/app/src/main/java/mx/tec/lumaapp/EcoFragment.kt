@@ -14,10 +14,7 @@ import mx.tec.lumaapp.elementos_recycler.adapter.CuponesAdapter
 import mx.tec.lumaapp.elementos_recycler.model.CuponesModel
 
 class EcoFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val EcoPts = view?.findViewById<TextView>(R.id.txtPuntosTotales)
 

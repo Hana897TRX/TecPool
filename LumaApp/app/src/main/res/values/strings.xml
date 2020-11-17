@@ -1,7 +1,13 @@
+<!-- ES-MX -->
 <resources>
     <string name="app_name">LumaApp</string>
     <string name="permission_needed">Permiso necesario</string>
     <string name="accept">Aceptar</string>
+
+    <!-- Menu Strings -->
+    <string name="home_m">Inicio</string>
+    <string name="coupons_m">Cupones</string>
+    <string name="settings_m">Ajustes</string>
 
     <!--    Strings del layout perfil-->
     <string name="mi_perfil">Mi perfil</string>

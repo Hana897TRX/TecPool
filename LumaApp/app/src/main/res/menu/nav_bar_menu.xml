@@ -7,7 +7,7 @@
         android:checkableBehavior="single">
 
         <item android:title="@string/inicio_menu_var"
-        android:id="@+id/homeActivity"
+        android:id="@+id/homeActivityx"
         android:icon="@drawable/home"/>
 
         <item android:title="@string/rides_menu_var"
@@ -25,15 +25,15 @@
                     android:menuCategory="container" >
 
                     <item android:title="@string/ecopuntos_menu_var"
-                        android:id="@+id/ecoActivity"
+                        android:id="@+id/ecoActivityx"
                         android:icon="@drawable/regalo"/>
 
                     <item android:title="Mis cupones"
-                        android:id="@+id/misCupones"
+                        android:id="@+id/misCuponesx"
                         android:icon="@drawable/cupon"/>
 
                     <item android:title="@string/mi_perfil_menu_var"
-                        android:id="@+id/perfilActivity"
+                        android:id="@+id/perfilActivityx"
                         android:icon="@drawable/cara"/>
                 </group>
             </menu>
@@ -45,7 +45,7 @@
             <group
                 android:menuCategory="container" >
                 <item
-                    android:id="@+id/settings"
+                    android:id="@+id/settingsx"
                     android:icon="@drawable/settings"
                     android:title="@string/configuracion_menu_var" />
             </group>
