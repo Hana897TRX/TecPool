@@ -6,7 +6,7 @@ import retrofit2.http.*
 interface INodeJS {
     @POST(value="register/")
     fun RegisterUsers(@Path(value="id") id: Int,
-                     @Body user: User?): Call<User>
+                      @Body user: User?): Call<User>
 
     @POST(value="login/")
     fun signIn(@Body info: signIn?): Call<signIn>
