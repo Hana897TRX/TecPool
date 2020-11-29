@@ -15,11 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import mx.tec.lumaapp.R
 import mx.tec.lumaapp.elementos_recycler.model.CuponesModel
 import mx.tec.lumaapp.elementos_recycler.model.RutaModel
+import mx.tec.lumaapp.models.PriceModel
 
 class CuponesAdapter (
     private val context: Context,
     private val layout: Int,
-    private val dataSource: List<CuponesModel>): RecyclerView.Adapter<CuponesAdapter.ItemHolder>(){
+    private val dataSource: List<PriceModel>): RecyclerView.Adapter<CuponesAdapter.ItemHolder>(){
 
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     private lateinit var onClickListener: View.OnClickListener
@@ -31,27 +32,15 @@ class CuponesAdapter (
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CuponesAdapter.ItemHolder, position: Int) {
-        val elemento: CuponesModel = dataSource.get(position)
+        val elemento: PriceModel = dataSource.get(position)
 
-        holder.tipo.text = elemento.tipo
-        holder.imagen.setImageResource(elemento.imagen)
-        val precio = "${elemento.precio} €cos"
+        holder.tipo.text = elemento.category
+        holder.imagen.setImageResource(R.drawable.regalo)
+        val precio = "${elemento.points} €cos"
         holder.precio.text = precio
+        holder.description.text = elemento.description
 
-        holder.itemView.setOnClickListener {
-            /*holder.dialog.setContentView(R.layout.info_ruta_pop)
-
-            val inicioTxt = holder.dialog.findViewById<TextView>(R.id.inicio_rutaTxt)
-            val destinoTxt = holder.dialog.findViewById<TextView>(R.id.destino_rutaTxt)
-            inicioTxt.setText(holder.origen.text)
-            destinoTxt.setText(holder.destino.text)
-
-            holder.dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            holder.dialog.show()
-
-            val window = holder.dialog.window;
-            window!!.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);*/
-        }
+        // OnClickListener to be implemented
     }
 
     override fun getItemCount(): Int {
@@ -62,6 +51,7 @@ class CuponesAdapter (
         val tipo = itemView.findViewById<TextView>(R.id.txtTipo)
         val imagen = itemView.findViewById<ImageView>(R.id.imgImagen)
         val precio = itemView.findViewById<TextView>(R.id.txtPrecio)
+        val description = itemView.findViewById<TextView>(R.id.txtDescription)
         val dialog = Dialog(itemView.context)
     }
 }

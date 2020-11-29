@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import mx.tec.lumaapp.Retrofit.IPrizeService
+import mx.tec.lumaapp.Utility.Berry
 import mx.tec.lumaapp.Utility.EnvSettings
+import mx.tec.lumaapp.Utility.Item
 import mx.tec.lumaapp.elementos_recycler.adapter.CuponesAdapter
 import mx.tec.lumaapp.elementos_recycler.model.CuponesModel
 import mx.tec.lumaapp.models.PriceModel
@@ -31,17 +33,17 @@ class EcoFragment : Fragment() {
         val view = inflater.inflate(R.layout.eco_puntos_layout, container, false)
 
         // Default values
-        val cupones = arrayListOf<CuponesModel>(
-            CuponesModel("Comida", 100, R.drawable.regalo),
-            CuponesModel("Diversion", 150, R.drawable.regalo),
-            CuponesModel("???", 200, R.drawable.regalo),)
-
-        val adaptador = CuponesAdapter(activity!!.applicationContext, R.layout.cupones_layout, cupones)
-
-        val rvCupones = view.findViewById<RecyclerView>(R.id.rvCupones)
-        rvCupones.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
-        rvCupones.setHasFixedSize(true)
-        rvCupones.adapter = adaptador
+//        val cupones = arrayListOf<CuponesModel>(
+//            CuponesModel("Comida", 100, R.drawable.regalo),
+//            CuponesModel("Diversion", 150, R.drawable.regalo),
+//            CuponesModel("???", 200, R.drawable.regalo),)
+//
+//        val adaptador = CuponesAdapter(view.context, R.layout.cupones_layout, cupones)
+//
+//        val rvCupones = view.findViewById<RecyclerView>(R.id.rvCupones)
+//        rvCupones.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
+//        rvCupones.setHasFixedSize(true)
+//        rvCupones.adapter = adaptador
 
         // Inflate the layout for this fragment
 
@@ -53,21 +55,14 @@ class EcoFragment : Fragment() {
 
         val service = retrofit.create<IPrizeService>(IPrizeService::class.java)
 
-
         service.getPrizes().enqueue(object : Callback<List<PriceModel>>{
-            override fun onResponse(call: Call<List<PriceModel>>, response: Response<List<PriceModel>>) {
+            override fun onResponse(call: Call<List<PriceModel>>, response: Response <List<PriceModel>>) {
                 val cuponesModern = response.body()
 
-                Toast.makeText(view.context, cuponesModern.toString(), Toast.LENGTH_LONG)
+                Toast.makeText(view.context, cuponesModern!!.toString(), Toast.LENGTH_LONG)
                     .show()
 
-                var list = arrayListOf<CuponesModel>()
-
-                for(i in 0 until cuponesModern!!.size){
-                    list.add(CuponesModel(cuponesModern[i].category, cuponesModern[i].points, R.drawable.regalo))
-                }
-
-                val adaptador = CuponesAdapter(view.context, R.layout.cupones_layout, list)
+                val adaptador = CuponesAdapter(view.context, R.layout.cupones_layout, cuponesModern)
 
                 val rvCupones = view.findViewById<RecyclerView>(R.id.rvCupones)
                 rvCupones.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
