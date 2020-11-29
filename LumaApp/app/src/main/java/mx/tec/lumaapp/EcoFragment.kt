@@ -1,7 +1,5 @@
 package mx.tec.lumaapp
 
-import android.Manifest
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,17 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import mx.tec.lumaapp.Retrofit.IPrizeService
-import mx.tec.lumaapp.Utility.Berry
 import mx.tec.lumaapp.Utility.EnvSettings
-import mx.tec.lumaapp.Utility.Item
 import mx.tec.lumaapp.elementos_recycler.adapter.CuponesAdapter
-import mx.tec.lumaapp.elementos_recycler.model.CuponesModel
 import mx.tec.lumaapp.models.PriceModel
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,21 +23,6 @@ class EcoFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.eco_puntos_layout, container, false)
-
-        // Default values
-//        val cupones = arrayListOf<CuponesModel>(
-//            CuponesModel("Comida", 100, R.drawable.regalo),
-//            CuponesModel("Diversion", 150, R.drawable.regalo),
-//            CuponesModel("???", 200, R.drawable.regalo),)
-//
-//        val adaptador = CuponesAdapter(view.context, R.layout.cupones_layout, cupones)
-//
-//        val rvCupones = view.findViewById<RecyclerView>(R.id.rvCupones)
-//        rvCupones.layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL)
-//        rvCupones.setHasFixedSize(true)
-//        rvCupones.adapter = adaptador
-
-        // Inflate the layout for this fragment
 
         val EcoPts = view?.findViewById<TextView>(R.id.txtPuntosTotales)
 
@@ -75,12 +52,6 @@ class EcoFragment : Fragment() {
                     .show()
             }
         })
-
-//        val cupones = arrayListOf<CuponesModel>(
-//            CuponesModel("Comida", 100, R.drawable.regalo),
-//            CuponesModel("Diversion", 150, R.drawable.regalo),
-//            CuponesModel("???", 200, R.drawable.regalo),
-//        )
 
         return view
     }

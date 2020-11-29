@@ -1,5 +1,6 @@
 package mx.tec.lumaapp.Retrofit
 
+import mx.tec.lumaapp.models.User
 import retrofit2.Call
 import retrofit2.http.*
 

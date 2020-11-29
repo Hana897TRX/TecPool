@@ -1,5 +1,8 @@
 package mx.tec.lumaapp.Utility
 
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 class EnvSettings {
     private val stringKeys:HashMap<String,String> = HashMap()
     init {
@@ -20,6 +23,11 @@ class EnvSettings {
         fun getDbAddress():String{
             val values = getInstance().stringKeys
             return (values["dbIp"] + ":" + values["dbPort"] + values["dbUrl"])
+        }
+
+        fun getDB() : Retrofit {
+            return Retrofit.Builder().baseUrl(EnvSettings.getDbAddress()).addConverterFactory(
+                GsonConverterFactory.create()).build()
         }
     }
 }

@@ -10,6 +10,14 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import mx.tec.lumaapp.Retrofit.IUserService
+import mx.tec.lumaapp.Utility.EnvSettings
+import mx.tec.lumaapp.models.User
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class LogInFragment : Fragment() {
     @SuppressLint("RestrictedApi")
@@ -39,12 +47,36 @@ class LogInFragment : Fragment() {
         val mantener = view.findViewById<CheckBox>(R.id.manter_iniciadoBtn)
         val btnRegistrar = view.findViewById<TextView>(R.id.txtRegister)
 
+        // Log-in
         btnAceptar.setOnClickListener {
-            validadUsuario_JarCodeado(
-                userTxt.text.toString(),
-                passwordTxt.text.toString(),
-                mantener
-            )
+
+            var user = User(0,0,0,0,0, "", "", "")
+            user.mail = userTxt.text.toString()
+            user.password = passwordTxt.text.toString()
+
+            val retrofit = EnvSettings.getDB()
+            val service = retrofit.create(IUserService::class.java)
+
+            service.userLogin(user).enqueue(object : Callback<User> {
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+                    var response = response.body()
+
+                    if (response!!.idUser != 0){
+                        val intent = Intent(view.context, MainActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        startActivity(intent)
+                    }
+                    else{
+                        Toast.makeText(view.context, "User or password wrong", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+
+                override fun onFailure(call: Call<User>, t: Throwable) {
+                    Toast.makeText(view.context, "Error de conexión", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            })
         }
 
         btnOlvide.setOnClickListener {
@@ -61,77 +93,4 @@ class LogInFragment : Fragment() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
-
-    fun validadUsuario_JarCodeado(user: String, password: String, mantener: CheckBox) {
-
-        val UsusariosJar = arrayListOf<Usuario_JarCodeado>(
-            Usuario_JarCodeado(
-                "Gabriela Fernanda Soto GUTIERREZ",
-                "Gaby",
-                "Gaby",
-                "7771033890",
-                20,
-                "ITC",
-                30
-            ),
-            Usuario_JarCodeado("Raúl Orihuela Rosas", "Rulo", "Rulo", "7771046716", 22, "ITC", 300),
-            Usuario_JarCodeado(
-                "Israel Sánchez Hinojosa",
-                "Montoya",
-                "Montoya",
-                "7773401499",
-                20,
-                "ITC",
-                0
-            ),
-            Usuario_JarCodeado(
-                "Rodrigo Sebastián de la Rosa Andrés",
-                "Tory",
-                "Tory",
-                "7472211787",
-                20,
-                "ITC",
-                100
-            )
-        )
-
-        UsusariosJar.forEach {
-
-            if (user == it.user) {
-                if (password == it.password) {
-                    val sharedPreferences =
-                        this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
-
-                    with(sharedPreferences!!.edit()) {
-                        putString("nombre", it.nombre)
-                        if (mantener.isChecked) {
-                            putInt("mantener", 1)
-                            putString("user", it.user)
-                            putString("password", it.password)
-                        } else
-                            putInt("mantener", 0)
-                        putString("telefono", it.telefono)
-                        putInt("edad", it.edad)
-                        putString("carrera", it.carrera)
-                        putInt("ecosAcumulados", it.ecosAcumulados)
-                        commit()
-                    }
-
-                    val intent = Intent(this.requireContext(), MainActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
-                }
-            }
-        }
-    }
-
-    data class Usuario_JarCodeado(
-        val nombre: String,
-        val user: String,
-        val password: String,
-        val telefono: String,
-        val edad: Int,
-        val carrera: String,
-        val ecosAcumulados: Int
-    ) {}
 }
