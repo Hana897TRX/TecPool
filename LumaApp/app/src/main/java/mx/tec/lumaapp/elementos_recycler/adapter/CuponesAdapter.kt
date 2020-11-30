@@ -3,6 +3,7 @@ package mx.tec.lumaapp.elementos_recycler.adapter
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
@@ -40,7 +41,15 @@ class CuponesAdapter (
         holder.precio.text = precio
         holder.description.text = elemento.description
 
-        // OnClickListener to be implemented
+        holder.itemView.setOnClickListener {
+            holder.dialog.setContentView(R.layout.canjeo_cupones)
+
+            val window = holder.dialog.window;
+            window!!.setLayout(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+        }
     }
 
     override fun getItemCount(): Int {
