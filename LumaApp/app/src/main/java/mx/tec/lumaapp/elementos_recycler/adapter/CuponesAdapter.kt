@@ -49,6 +49,8 @@ class CuponesAdapter (
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             );
+
+            holder.dialog.show()
         }
     }
 

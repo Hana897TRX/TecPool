@@ -12,7 +12,7 @@ import mx.tec.lumaapp.R
 class CanjeoCupones : Fragment() {
 
     private var cant = 1
-    var precio = 0
+    private var precio = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +27,7 @@ class CanjeoCupones : Fragment() {
         val costo = view.findViewById<TextView>(R.id.costoTxt)
 
         cantidad.text = cant.toString()
+        costo.text = "Total: $precio Ecopuntos"
 
         agregarBtn.setOnClickListener{
             cant++
