@@ -1,5 +1,6 @@
 package mx.tec.lumaapp.Retrofit
 
+import mx.tec.lumaapp.models.SimpleMessage
 import mx.tec.lumaapp.models.User
 import retrofit2.Call
 import retrofit2.http.Body
@@ -11,10 +12,10 @@ interface IUserService {
     fun userLogin(@Body user : User) : Call<User>
 
     @POST(value = "userReset/")
-    fun userReset(@Body user: User) : String
+    fun userReset(@Body user: User) : Call<SimpleMessage>
 
     @POST(value = "userRegister/")
-    fun userRegister(@Body user: User) : String
+    fun userRegister(@Body user: User) : Call<SimpleMessage>
 
     @POST(value = "userUpdate/")
     fun userUpdate(@Body user : User, @Header("newPassword") password : String) : Call<User>

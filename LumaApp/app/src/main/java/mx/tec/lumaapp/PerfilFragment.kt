@@ -15,16 +15,13 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.perfil_layout.*
 import kotlinx.android.synthetic.main.register_layout.*
+import mx.tec.lumaapp.Utility.EnvSettings
 
 class PerfilFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.perfil_layout, container, false)
 
-        val sharedPreferences =
-            this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
+        val sharedPreferences = view.context.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE)
 
         val nombreTxt = view.findViewById<TextView>(R.id.usuarioTxt)
         val carreraTxt = view.findViewById<TextView>(R.id.carreraTxt)
@@ -32,11 +29,11 @@ class PerfilFragment : Fragment() {
         val edadTxt = view.findViewById<TextView>(R.id.edadTxt)
         val ecosTxt = view.findViewById<TextView>(R.id.ecopuntosTxt)
 
-        val nombre = sharedPreferences!!.getString("nombre", "null")
-        val carrera = sharedPreferences!!.getString("carrera", "null")
-        val telefono = sharedPreferences!!.getString("telefono", "null")
-        val edad = sharedPreferences!!.getInt("edad", 0)
-        val ecos = sharedPreferences!!.getInt("ecosAcumulados", 0)
+        val nombre = sharedPreferences!!.getString(EnvSettings.getUserName(), "Invitado")
+        val carrera = sharedPreferences!!.getString("carrera", "ITC")
+        val telefono = sharedPreferences!!.getString("telefono", "777 341 2411")
+        val edad = sharedPreferences!!.getInt("edad", 20)
+        val ecos = sharedPreferences!!.getInt(EnvSettings.getEcoPuntos(), 0)
 
         nombreTxt.text = nombre.toString()
         telefonoTxt.text = String.format("Teléfono: " + telefono.toString())
@@ -54,48 +51,20 @@ class PerfilFragment : Fragment() {
 
         val cerrarBtn = view.findViewById<TextView>(R.id.cerrar_sesionBtn)
 
-//        val bottomNavigationView = this.activity?.findViewById<BottomNavigationView>(R.id.nav_bar)
-//        bottomNavigationView!!.setOnNavigationItemSelectedListener {
-//            when (it.itemId) {
-//                R.id.ecoActivity -> {
-//                    findNavController().navigate(R.id.action_perfilActivity_to_ecoActivity)
-//                    true
-//                }
-//                R.id.homeActivity -> {
-//                    findNavController().navigate(R.id.action_perfilActivity_to_homeActivity)
-//                    true
-//                }
-//                R.id.ridesActivity -> {
-//                    findNavController().navigate(R.id.action_perfilActivity_to_ridesActivity)
-//                    true
-//                }
-//                else -> false
-//            }
-//        }
-
         cerrarBtn.setOnClickListener {
             val dialogBuilder = AlertDialog.Builder(this.requireContext())
             dialogBuilder.setMessage("¿Deseas cerrar sesión?")
                 .setCancelable(false)
                 .setPositiveButton("Cerrar") { dialogInterface, which ->
-                    val sharedPreferences =
-                        this.activity?.getSharedPreferences(
-                            "informacion_usuario",
-                            Context.MODE_PRIVATE
-                        )
+
+                    val sharedPreferences = it.context.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE)
                     with(sharedPreferences!!.edit()) {
-                        putString("nombre", "null")
-                        putString("user", "null")
-                        putString("password", "null")
-                        putString("telefono", "null")
-                        putString("carrera", "null")
-                        putInt("edad", 0)
-                        putInt("ecosAcumulados", 0)
-                        putInt("mantener", 0)
-                        commit()
+                        putString(EnvSettings.getUserName(), "null")
+                        putInt(EnvSettings.getEcoPuntos(), 0)
+                        apply()
                     }
 
-                    val intent = Intent(this.context, LumaHomeActivity::class.java)
+                    val intent = Intent(it.context, LumaHomeActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
                 }

@@ -62,6 +62,14 @@ class LogInFragment : Fragment() {
                     var response = response.body()
 
                     if (response!!.idUser != 0){
+                        val sp = view.context.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE)
+
+                        with(sp.edit()){
+                            putString(EnvSettings.getUserName(), response.name)
+                            putInt(EnvSettings.getEcoPuntos(), response.ecoPointsTotal)
+                            apply()
+                        }
+
                         val intent = Intent(view.context, MainActivity::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         startActivity(intent)

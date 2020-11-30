@@ -108,7 +108,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="@string/nombre_template"
+        android:text="Place holder"
         android:textSize="30sp"
         app:autoSizeMaxTextSize="400sp"
         app:autoSizeMinTextSize="1sp"

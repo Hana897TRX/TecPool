@@ -1,5 +1,6 @@
 package mx.tec.lumaapp
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +25,7 @@ class EcoFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.eco_puntos_layout, container, false)
 
-        val EcoPts = view?.findViewById<TextView>(R.id.txtPuntosTotales)
+        view?.findViewById<TextView>(R.id.txtPuntosTotales)!!.setText(view.context.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE).getInt(EnvSettings.getEcoPuntos(), 0).toString())
 
         val retrofit : Retrofit = Retrofit.Builder().baseUrl(EnvSettings.getDbAddress())
                                                     .addConverterFactory(GsonConverterFactory.create())
