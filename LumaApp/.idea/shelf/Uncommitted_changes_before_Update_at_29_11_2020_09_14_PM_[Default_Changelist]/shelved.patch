@@ -1,0 +1,121 @@
+Index: app/src/main/java/mx/tec/lumaapp/mail/Credenciales.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mx.tec.lumaapp.mail\r\n\r\nobject Credenciales {\r\n    const val EMAIL = \"tucorreo@gmail.com\"\r\n    const val PASSWORD = \"tucontraseñadelcorreo\"\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/mx/tec/lumaapp/mail/Credenciales.kt	(revision 5692da19aac8f3593d3a27be1b7ae0f406242885)
++++ app/src/main/java/mx/tec/lumaapp/mail/Credenciales.kt	(date 1606000151926)
+@@ -1,6 +1,6 @@
+ package mx.tec.lumaapp.mail
+ 
+ object Credenciales {
+-    const val EMAIL = "tucorreo@gmail.com"
+-    const val PASSWORD = "tucontraseñadelcorreo"
++    const val EMAIL = "lumateccva@gmail.com"
++    const val PASSWORD = "lideresunidos"
+ }
+\ No newline at end of file
+Index: app/src/main/java/mx/tec/lumaapp/Retrofit/INodeJS.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mx.tec.lumaapp.Retrofit\r\n\r\nimport retrofit2.Call\r\nimport retrofit2.http.*\r\n\r\ninterface INodeJS {\r\n    @POST(value=\"register/\")\r\n    fun RegisterUsers(@Path(value=\"id\") id: Int,\r\n                     @Body user: User?): Call<User>\r\n\r\n    @POST(value=\"login/\")\r\n    fun signIn(@Body info: signIn?): Call<signIn>\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/mx/tec/lumaapp/Retrofit/INodeJS.kt	(revision 5692da19aac8f3593d3a27be1b7ae0f406242885)
++++ app/src/main/java/mx/tec/lumaapp/Retrofit/INodeJS.kt	(date 1606002527364)
+@@ -10,4 +10,6 @@
+ 
+     @POST(value="login/")
+     fun signIn(@Body info: signIn?): Call<signIn>
++
++
+ }
+\ No newline at end of file
+Index: app/src/main/java/mx/tec/lumaapp/RegisterFragment.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mx.tec.lumaapp\r\n\r\nimport android.content.Context\r\nimport android.content.SharedPreferences\r\nimport android.os.Bundle\r\nimport android.view.LayoutInflater\r\nimport android.view.View\r\nimport android.view.ViewGroup\r\nimport android.widget.Button\r\nimport android.widget.Toast\r\nimport androidx.fragment.app.Fragment\r\nimport kotlinx.android.synthetic.main.register_layout.*\r\nimport mx.tec.lumaapp.mail.AppExecutors\r\nimport mx.tec.lumaapp.mail.Credenciales\r\nimport javax.mail.*\r\nimport javax.mail.internet.InternetAddress\r\nimport javax.mail.internet.MimeMessage\r\n\r\nclass RegisterFragment : Fragment() {\r\n    private var sharedPreferences : SharedPreferences? = null\r\n    lateinit var appExecutors: AppExecutors\r\n\r\n    override fun onCreateView(\r\n        inflater: LayoutInflater,\r\n        container: ViewGroup?,\r\n        savedInstanceState: Bundle?\r\n    ): View? {\r\n        val view = inflater.inflate(R.layout.register_layout, container, false)\r\n\r\n        sharedPreferences = this.activity?.getSharedPreferences(\"informacion_usuario\", Context.MODE_PRIVATE)\r\n\r\n        val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)\r\n        btnAceptar.setOnClickListener{\r\n            sendEmail2()\r\n//            Register(view)\r\n        }\r\n\r\n        val btnCancelar = view.findViewById<Button>(R.id.btnCancel)\r\n        btnCancelar.setOnClickListener {\r\n            this.activity?.onBackPressed()\r\n        }\r\n\r\n        return view\r\n    }\r\n\r\n    override fun onAttach(context: Context) {\r\n        appExecutors = AppExecutors()\r\n        super.onAttach(context)\r\n    }\r\n\r\n    private fun sendEmail2(){\r\n        val Email = \"a01423630@itesm.mx\"\r\n        appExecutors.diskIO().execute {\r\n            val props = System.getProperties()\r\n            props.put(\"mail.smtp.host\", \"smtp.gmail.com\")\r\n            props.put(\"mail.smtp.socketFactory.port\", \"465\")\r\n            props.put(\"mail.smtp.socketFactory.class\", \"javax.net.ssl.SSLSocketFactory\")\r\n            props.put(\"mail.smtp.auth\", \"true\")\r\n            props.put(\"mail.smtp.port\", \"465\")\r\n\r\n            val session =  Session.getInstance(props,\r\n                object : javax.mail.Authenticator() {\r\n                    //Authenticating the password\r\n                    override fun getPasswordAuthentication(): PasswordAuthentication {\r\n                        return PasswordAuthentication(Credenciales.EMAIL, Credenciales.PASSWORD)\r\n                    }\r\n                })\r\n\r\n            try {\r\n                //Creating MimeMessage object\r\n                val mm = MimeMessage(session)\r\n                //Setting sender address\r\n                mm.setFrom(InternetAddress(Credenciales.EMAIL))\r\n                //Adding receiver\r\n                mm.addRecipient(\r\n                    Message.RecipientType.TO,\r\n                    InternetAddress(Email)\r\n                )\r\n                //Adding subject\r\n                mm.subject = \"Le damos la bienvenida a PuntoVerde\"\r\n                //Adding message\r\n                mm.setText(\"Bienvenida(o) a PuntoVerde.\" +\r\n                        \"\\nNuestro objetivo es crear un cambio positivo en la comunidad ITESM Cuernavaca en favor del medio ambiente.\" +\r\n                        \"\\n\\nPara iniciar sesión y comenzar a utilizar su cuenta utilice:\" +\r\n                        \"\\nSu usuario:\" +\r\n                        \"\\nY la contraseña:\" +\r\n                        \"\\n\\nSugerimos cambiar su contreseña predefinida a una de su elección una vez que ingrese a su cuenta.\" +\r\n                        \"\\n\\n\\nPuntoVerde nunca le pedirá datos personales como usuario, contraseña, correo, teléfono o cualquier otro dato sensible a través de un correo elctrónico.\" +\r\n                        \"\\nEste correo es informativo, favor de no responder a esta dirección de correo, ya que no se encuentra habilitada para recibir mensajes.\" +\r\n                        \"\\nAtte. el equipo de LUMA.\")\r\n//                , \"text/html; charset=utf-8\"\r\n\r\n                //Sending email\r\n                Transport.send(mm)\r\n\r\n                appExecutors.mainThread().execute {\r\n                    //Something that should be executed on main thread.\r\n\r\n                    Toast.makeText(this.requireContext(), \"Correo enviado\", Toast.LENGTH_SHORT).show()\r\n                }\r\n\r\n            } catch (e: MessagingException) {\r\n                e.printStackTrace()\r\n            }\r\n        }\r\n    }\r\n\r\n    private fun sendEmail(){\r\n        appExecutors.diskIO().execute {\r\n            val props = System.getProperties()\r\n            props.put(\"mail.smtp.host\", \"smtp.gmail.com\")\r\n            props.put(\"mail.smtp.socketFactory.port\", \"465\")\r\n            props.put(\"mail.smtp.socketFactory.class\", \"javax.net.ssl.SSLSocketFactory\")\r\n            props.put(\"mail.smtp.auth\", \"true\")\r\n            props.put(\"mail.smtp.port\", \"465\")\r\n\r\n            val session =  Session.getInstance(props,\r\n                object : javax.mail.Authenticator() {\r\n                    //Authenticating the password\r\n                    override fun getPasswordAuthentication(): PasswordAuthentication {\r\n                        return PasswordAuthentication(Credenciales.EMAIL, Credenciales.PASSWORD)\r\n                    }\r\n                })\r\n\r\n            try {\r\n                //Creating MimeMessage object\r\n                val mm = MimeMessage(session)\r\n                val emailId = \"a01423630@itesm.mx\"\r\n                //Setting sender address\r\n                mm.setFrom(InternetAddress(Credenciales.EMAIL))\r\n                //Adding receiver\r\n                mm.addRecipient(\r\n                    Message.RecipientType.TO,\r\n                    InternetAddress(emailId))\r\n                //Adding subject\r\n                mm.subject = \"Le damos la bienvenida a PuntoVerde\"\r\n                //Adding message\r\n                mm.setText(\"Your mail body.\")\r\n\r\n                //Sending email\r\n                Transport.send(mm)\r\n\r\n                appExecutors.mainThread().execute {\r\n                    //Something that should be executed on main thread.\r\n                }\r\n\r\n            } catch (e: MessagingException) {\r\n                e.printStackTrace()\r\n            }\r\n        }\r\n    }\r\n\r\n    fun Register(view : View){\r\n\r\n        val regex = Regex(pattern = \"^([AL][0-9]{8}|[a-zA-Z0-9]+([._-]?[a-zA-Z0-9])*)@(itesm|tec)\\\\.mx$\")\r\n        if(txtUser.text.isNotEmpty()){\r\n            if(regex.containsMatchIn(input = txtUser.text)) {\r\n                Toast.makeText(this.requireContext(), \"El correo válido\", Toast.LENGTH_SHORT).show()\r\n                sendEmail()\r\n//                    if (txtPass.text.toString() == txtPassConfirm.text.toString()) {\r\n//\r\n//                        val dialogBuilder = AlertDialog.Builder(this.requireContext())\r\n//                        dialogBuilder.setMessage(\"¿Deseas activar esta cuenta?\")\r\n//                            .setCancelable(false)\r\n//                            .setPositiveButton(\"Activar\") { dialogInterface, which ->\r\n//\r\n//                                with(sharedPreferences!!.edit()) {\r\n//                                    putString(\"user\", txtUser.text.toString())\r\n//                                    putString(\"password\", txtPass.text.toString())\r\n//                                    putInt(\"accountValidate\", 1)\r\n//                                    commit()\r\n//                                }\r\n//                                Toast.makeText(\r\n//                                    this.requireContext(),\r\n//                                    \"Cuenta activada\",\r\n//                                    Toast.LENGTH_SHORT\r\n//                                ).show()\r\n//                                this.activity?.onBackPressed()\r\n//                            }\r\n//                            .setNegativeButton(\r\n//                                \"Cancelar\",\r\n//                                DialogInterface.OnClickListener { dialog, id ->\r\n//                                    dialog.cancel()\r\n//                                })\r\n//                        val alert = dialogBuilder.create()\r\n//                        alert.setTitle(\"Activar cuenta\")\r\n//                        alert.show()\r\n//                    } else {\r\n//                        Toast.makeText(this.requireContext(), R.string.NotMatch, Toast.LENGTH_SHORT)\r\n//                            .show()\r\n//                    }\r\n                }\r\n            else {\r\n                Toast.makeText(this.requireContext(), \"El correo no es válido\", Toast.LENGTH_SHORT).show()\r\n            }\r\n        }\r\n        else {\r\n            Toast.makeText(this.requireContext(), \"Ingresar correo institucional\", Toast.LENGTH_SHORT).show()\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/mx/tec/lumaapp/RegisterFragment.kt	(revision 5692da19aac8f3593d3a27be1b7ae0f406242885)
++++ app/src/main/java/mx/tec/lumaapp/RegisterFragment.kt	(date 1605999533176)
+@@ -31,7 +31,7 @@
+ 
+         val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
+         btnAceptar.setOnClickListener{
+-            sendEmail2()
++            sendEmail()
+ //            Register(view)
+         }
+ 
+@@ -48,8 +48,8 @@
+         super.onAttach(context)
+     }
+ 
+-    private fun sendEmail2(){
+-        val Email = "a01423630@itesm.mx"
++    private fun sendEmail(){
++        val Email = "a01423906@itesm.mx"
+         appExecutors.diskIO().execute {
+             val props = System.getProperties()
+             props.put("mail.smtp.host", "smtp.gmail.com")
+@@ -105,54 +105,9 @@
+         }
+     }
+ 
+-    private fun sendEmail(){
+-        appExecutors.diskIO().execute {
+-            val props = System.getProperties()
+-            props.put("mail.smtp.host", "smtp.gmail.com")
+-            props.put("mail.smtp.socketFactory.port", "465")
+-            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory")
+-            props.put("mail.smtp.auth", "true")
+-            props.put("mail.smtp.port", "465")
+-
+-            val session =  Session.getInstance(props,
+-                object : javax.mail.Authenticator() {
+-                    //Authenticating the password
+-                    override fun getPasswordAuthentication(): PasswordAuthentication {
+-                        return PasswordAuthentication(Credenciales.EMAIL, Credenciales.PASSWORD)
+-                    }
+-                })
+-
+-            try {
+-                //Creating MimeMessage object
+-                val mm = MimeMessage(session)
+-                val emailId = "a01423630@itesm.mx"
+-                //Setting sender address
+-                mm.setFrom(InternetAddress(Credenciales.EMAIL))
+-                //Adding receiver
+-                mm.addRecipient(
+-                    Message.RecipientType.TO,
+-                    InternetAddress(emailId))
+-                //Adding subject
+-                mm.subject = "Le damos la bienvenida a PuntoVerde"
+-                //Adding message
+-                mm.setText("Your mail body.")
+-
+-                //Sending email
+-                Transport.send(mm)
+-
+-                appExecutors.mainThread().execute {
+-                    //Something that should be executed on main thread.
+-                }
+-
+-            } catch (e: MessagingException) {
+-                e.printStackTrace()
+-            }
+-        }
+-    }
+-
+     fun Register(view : View){
+ 
+-        val regex = Regex(pattern = "^([AL][0-9]{8}|[a-zA-Z0-9]+([._-]?[a-zA-Z0-9])*)@(itesm|tec)\\.mx$")
++        val regex = Regex(pattern = "^([AL][0-9]{8}|[a-zA-Z0-9]+([._-]?[a-zA-Z0-9])*)@(itesm|tec|exatec.tec)\\.mx$")
+         if(txtUser.text.isNotEmpty()){
+             if(regex.containsMatchIn(input = txtUser.text)) {
+                 Toast.makeText(this.requireContext(), "El correo válido", Toast.LENGTH_SHORT).show()

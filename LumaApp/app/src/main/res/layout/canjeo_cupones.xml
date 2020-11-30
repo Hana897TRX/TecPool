@@ -45,7 +45,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:text="TextView"
+                android:text="20"
                 android:textSize="32sp" />
 
             <LinearLayout
@@ -61,7 +61,7 @@
                     android:src="@drawable/agregar" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/cantidadTxt"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:gravity="center"
