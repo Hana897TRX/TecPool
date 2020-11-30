@@ -47,7 +47,7 @@ class CodePasswordFragment : Fragment() {
 
             service.userLogin(user).enqueue(object : Callback<User> {
                 override fun onResponse(call: Call<User>, response: Response<User>) {
-                    var data = response.body()
+                    val data = response.body()
 
                     if (data!!.idUser != 0){
                         val sp = view.context.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE)

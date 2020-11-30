@@ -64,9 +64,11 @@ class PerfilFragment : Fragment() {
                         apply()
                     }
 
-                    val intent = Intent(it.context, LumaHomeActivity::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    startActivity(intent)
+                    activity!!.finish()
+
+//                    val intent = Intent(it.context, LumaHomeActivity::class.java)
+//                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+//                    startActivity(intent)
                 }
                 .setNegativeButton("Cancelar", DialogInterface.OnClickListener { dialog, id ->
                     dialog.cancel()

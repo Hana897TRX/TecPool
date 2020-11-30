@@ -42,7 +42,6 @@ class RegisterFragment : Fragment() {
         btnCancelar.setOnClickListener {
             this.activity?.onBackPressed()
         }
-
         return view
     }
 

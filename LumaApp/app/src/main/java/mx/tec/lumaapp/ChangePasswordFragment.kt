@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.change_password_activity.*
+import kotlinx.android.synthetic.main.change_password_activity.view.*
 import mx.tec.lumaapp.Retrofit.IUserService
 import mx.tec.lumaapp.Utility.EnvSettings
 import mx.tec.lumaapp.models.User
@@ -28,6 +29,8 @@ class ChangePasswordFragment : Fragment() {
 
         sharedPreferences = view.context.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE)
 
+        view.txtName.setText(sharedPreferences!!.getString(EnvSettings.getUserName(), "Invitado")!!)
+
         return view
     }
 
@@ -38,7 +41,14 @@ class ChangePasswordFragment : Fragment() {
         val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
 
         btnAceptar.setOnClickListener {
-            if (!txtPass.text.isEmpty() && !txtPassConfirm.text.isEmpty() && !txtName.text.isEmpty() && txtPass.text.toString() == txtPassConfirm.text.toString()){
+            Toast.makeText(view.context,
+                view.txtPass.text.isNotEmpty().toString() +
+                    view.txtPassConfirm.text.isNotEmpty().toString() +
+                    view.txtName.text.isNotEmpty().toString() +
+                        (view.txtPass.text.toString() ==  view.txtPassConfirm.text.toString()).toString() + "&" + view.txtPass.text.toString() + "%" + view.txtPassConfirm.text.toString() + "$",
+                Toast.LENGTH_SHORT)
+                .show()
+            if (view.txtPass.text.isNotEmpty() && view.txtPassConfirm.text.isNotEmpty() && view.txtName.text.isNotEmpty() && view.txtPass.text.toString() ==  view.txtPassConfirm.text.toString()){
                 val retrofit = EnvSettings.getDB()
                 val service = retrofit.create(IUserService::class.java)
 
