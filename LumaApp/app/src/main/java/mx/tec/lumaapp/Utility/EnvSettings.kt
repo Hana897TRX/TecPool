@@ -13,6 +13,8 @@ class EnvSettings {
         stringKeys["dbPort"] = "8080"
         stringKeys["spName"] = "TempUser"
         stringKeys["idUser"] = "idUser"
+        stringKeys["mail"] = "mail"
+        stringKeys["usCode"] = "usCode"
         stringKeys["idEcopuntos"] = "idEcopuntos"
         stringKeys["userName"] = "userName"
     }
@@ -36,6 +38,14 @@ class EnvSettings {
                 GsonConverterFactory.create()).build()
         }
 
+        fun getIdUser() : String{
+            return getInstance().stringKeys["idUser"]!!
+        }
+
+        fun getUsCode() : String{
+            return getInstance().stringKeys["usCode"]!!
+        }
+
         fun getSPName() : String{
             return getInstance().stringKeys["spName"]!!
         }
@@ -46,6 +56,10 @@ class EnvSettings {
 
         fun getEcoPuntos() : String {
             return getInstance().stringKeys["idEcopuntos"]!!
+        }
+
+        fun getMail() : String {
+            return getInstance().stringKeys["mail"]!!
         }
     }
 }

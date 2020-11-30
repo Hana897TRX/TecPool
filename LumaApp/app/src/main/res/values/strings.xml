@@ -75,6 +75,8 @@
     <string name="enviar_correo">Enviar correo</string>
     <string name="cambiar_contrase_a">Cambiar contraseña</string>
     <string name="correo_hint">Correo</string>
+    <string name="password">Password</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="configuracion_menu_var">Configuración</string>

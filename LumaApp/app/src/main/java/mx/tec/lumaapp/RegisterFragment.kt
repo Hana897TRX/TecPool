@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.register_layout.*
 import mx.tec.lumaapp.Retrofit.IUserService
 import mx.tec.lumaapp.Utility.EnvSettings
@@ -27,19 +28,14 @@ class RegisterFragment : Fragment() {
     private var sharedPreferences: SharedPreferences? = null
     lateinit var appExecutors: AppExecutors
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.register_layout, container, false)
 
-        sharedPreferences =
-            this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
+        sharedPreferences = this.activity?.getSharedPreferences(EnvSettings.getSPName(), Context.MODE_PRIVATE)
 
         val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
         btnAceptar.setOnClickListener {
-            getNewPassword(txtUser.text.toString(), view)
+            getNewPassword(txtPass.text.toString(), view)
         }
 
         val btnCancelar = view.findViewById<Button>(R.id.btnCancel)
@@ -66,8 +62,11 @@ class RegisterFragment : Fragment() {
                 Toast.makeText(view.context, data!!.message, Toast.LENGTH_SHORT)
                     .show()
 
-                if(data.type != "Error Message")
+                if(data.type != "Error Message") {
+                    sharedPreferences!!.edit().putString(EnvSettings.getMail(), user.mail).apply()
                     sendEmail2(email, data.message)
+                    findNavController().navigate(R.id.action_registerActivity_to_codePasswordActivity)
+                }
             }
 
             override fun onFailure(call: Call<SimpleMessage>, t: Throwable) {
@@ -112,7 +111,7 @@ class RegisterFragment : Fragment() {
                             "\nNuestro objetivo es crear un cambio positivo en la comunidad ITESM Cuernavaca en favor del medio ambiente." +
                             "\n\nPara iniciar sesión y comenzar a utilizar su cuenta utilice:" +
                             "\nSu usuario: " + Email +
-                            "\nY la contraseña: " + password +
+                            "\nY el código de confirmación es : " + password +
                             "\n\nSugerimos cambiar su contreseña predefinida a una de su elección una vez que ingrese a su cuenta." +
                             "\n\n\nPuntoVerde nunca le pedirá datos personales como usuario, contraseña, correo, teléfono o cualquier otro dato sensible a través de un correo elctrónico." +
                             "\nEste correo es informativo, favor de no responder a esta dirección de correo, ya que no se encuentra habilitada para recibir mensajes." +

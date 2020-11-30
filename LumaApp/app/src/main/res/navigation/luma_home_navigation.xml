@@ -23,7 +23,11 @@
         android:id="@+id/registerActivity"
         android:name="mx.tec.lumaapp.RegisterFragment"
         android:label="RegisterActivity"
-        tools:layout="@layout/register_layout"/>
+        tools:layout="@layout/register_layout">
+        <action
+            android:id="@+id/action_registerActivity_to_codePasswordActivity"
+            app:destination="@id/codePasswordActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/passwordActivity"

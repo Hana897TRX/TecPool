@@ -16,16 +16,10 @@ import mx.tec.lumaapp.models.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class LogInFragment : Fragment() {
     @SuppressLint("RestrictedApi")
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.login_main, container, false)
 
         val sharedPreferences = this.activity?.getSharedPreferences("informacion_usuario", Context.MODE_PRIVATE)
@@ -42,7 +36,7 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
         val userTxt = view.findViewById<EditText>(R.id.txtCorreo)
-        val passwordTxt = view.findViewById<EditText>(R.id.txtPass)
+        val passwordTxt = view.findViewById<EditText>(R.id.txtPassConfirm)
         val btnOlvide = view.findViewById<TextView>(R.id.olvide_contraBtn)
         val mantener = view.findViewById<CheckBox>(R.id.manter_iniciadoBtn)
         val btnRegistrar = view.findViewById<TextView>(R.id.txtRegister)
