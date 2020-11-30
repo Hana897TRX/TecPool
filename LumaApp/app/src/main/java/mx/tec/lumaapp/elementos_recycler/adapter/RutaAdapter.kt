@@ -15,7 +15,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.tec.lumaapp.R
 import mx.tec.lumaapp.elementos_recycler.model.RutaModel
-import mx.tec.lumaapp.info_ruta_pop
 
 class RutaAdapter(
     private val context: Context,
@@ -40,8 +39,10 @@ class RutaAdapter(
         holder.precio.text = precio
         holder.hora.text = elemento.hora
 
-        holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener{
             val i = Intent(context, info_ruta_pop::class.java)
+            i.putExtra("origen",holder.origen.text)
+            i.putExtra("destino",holder.destino.text)
             context.startActivity(i)
 
 //            holder.dialog.setContentView(R.layout.info_ruta_pop)

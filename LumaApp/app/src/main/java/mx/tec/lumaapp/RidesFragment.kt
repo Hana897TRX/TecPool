@@ -72,7 +72,7 @@ class RidesFragment : Fragment() , android.location.LocationListener {
 
         locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         verifyLocationPermission(context as Activity, Manifest.permission.ACCESS_FINE_LOCATION, LOCATION_CODE)
-        var mapFragment = parentFragmentManager.findFragmentById(R.id.mapx) as SupportMapFragment
+        val mapFragment = parentFragmentManager.findFragmentById(R.id.mapx) as SupportMapFragment
 
         mapFragment.getMapAsync{googleMap ->
             if (ActivityCompat.checkSelfPermission(context as Activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context as Activity, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
