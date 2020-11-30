@@ -21,6 +21,7 @@
             android:value="AIzaSyDxlqorRjg2KBDU7arDcOeab4x1vv4c86s" />
 
         <activity android:name=".MainActivity" />
+        <activity android:name=".info_ruta_pop"/>
         <activity android:name=".LumaHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

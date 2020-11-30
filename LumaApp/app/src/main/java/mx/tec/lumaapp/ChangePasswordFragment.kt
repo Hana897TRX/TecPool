@@ -41,13 +41,6 @@ class ChangePasswordFragment : Fragment() {
         val btnAceptar = view.findViewById<Button>(R.id.btnAceptar)
 
         btnAceptar.setOnClickListener {
-            Toast.makeText(view.context,
-                view.txtPass.text.isNotEmpty().toString() +
-                    view.txtPassConfirm.text.isNotEmpty().toString() +
-                    view.txtName.text.isNotEmpty().toString() +
-                        (view.txtPass.text.toString() ==  view.txtPassConfirm.text.toString()).toString() + "&" + view.txtPass.text.toString() + "%" + view.txtPassConfirm.text.toString() + "$",
-                Toast.LENGTH_SHORT)
-                .show()
             if (view.txtPass.text.isNotEmpty() && view.txtPassConfirm.text.isNotEmpty() && view.txtName.text.isNotEmpty() && view.txtPass.text.toString() ==  view.txtPassConfirm.text.toString()){
                 val retrofit = EnvSettings.getDB()
                 val service = retrofit.create(IUserService::class.java)
@@ -77,11 +70,8 @@ class ChangePasswordFragment : Fragment() {
                         Toast.makeText(view.context, "Error de conexión", Toast.LENGTH_SHORT)
                             .show()
                     }
-
                 })
-
             }
         }
     }
-
 }

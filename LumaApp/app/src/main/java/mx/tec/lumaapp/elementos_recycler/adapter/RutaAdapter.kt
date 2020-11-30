@@ -3,6 +3,7 @@ package mx.tec.lumaapp.elementos_recycler.adapter
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.DisplayMetrics
@@ -14,6 +15,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import mx.tec.lumaapp.R
 import mx.tec.lumaapp.elementos_recycler.model.RutaModel
+import mx.tec.lumaapp.info_ruta_pop
 
 class RutaAdapter(
     private val context: Context,
@@ -39,18 +41,18 @@ class RutaAdapter(
         holder.hora.text = elemento.hora
 
         holder.itemView.setOnClickListener {
-            holder.dialog.setContentView(R.layout.info_ruta_pop)
+            val i = Intent(context, info_ruta_pop::class.java)
+            context.startActivity(i)
 
-            val inicioTxt = holder.dialog.findViewById<TextView>(R.id.inicio_rutaTxt)
-            val destinoTxt = holder.dialog.findViewById<TextView>(R.id.destino_rutaTxt)
-            inicioTxt.setText(holder.origen.text)
-            destinoTxt.setText(holder.destino.text)
+//            holder.dialog.setContentView(R.layout.info_ruta_pop)
 
-            holder.dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            holder.dialog.show()
-
-            val window = holder.dialog.window;
-            window!!.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            val inicioTxt = holder.dialog.findViewById<TextView>(R.id.inicio_rutaTxt)
+//            val destinoTxt = holder.dialog.findViewById<TextView>(R.id.destino_rutaTxt)
+//            inicioTxt.setText(holder.origen.text)
+//            destinoTxt.setText(holder.destino.text)
+//
+//            val window = holder.dialog.window;
+//            window!!.setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         }
     }
 
@@ -63,7 +65,6 @@ class RutaAdapter(
         val origen = itemView.findViewById<TextView>(R.id.origenTxt)
         val precio = itemView.findViewById<TextView>(R.id.precioTxt)
         val hora = itemView.findViewById<TextView>(R.id.horaSalidaTxt)
-        val dialog = Dialog(itemView.context)
     }
 }
 
